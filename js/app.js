@@ -1,4 +1,5 @@
 let movesCount = 0;
+let correctGuessesCount = 0;
 const movesDisplay = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
 const restartButton = document.querySelector('.restart');
@@ -17,22 +18,38 @@ function playMove(e){
 
             matchCheckContainer.push(selectedTile);
 
+            selectedTile.classList.add('open', 'show');
+
             if(matchCheckContainer.length == 2){
                 if(matchCheckContainer[0].firstElementChild.className == matchCheckContainer[1].firstElementChild.className){
-                    //correctGuess();
-                    correctGuesses.push(guessClass);
+                    correctGuess();
                 }
                 else{
-                    //wrongGuess();
+                    setTimeout(wrongGuess, 700);
                 }
                 movesCount += 1;
                 movesDisplay.innerHTML = movesCount;
-                matchCheckContainer = [];
             }
         }
     }
         
     console.log(guessClass);
+}
+
+function correctGuess(){
+    correctGuesses.push(guessClass);
+    matchCheckContainer[0].classList.add('match');
+    matchCheckContainer[1].classList.add('match');
+    matchCheckContainer = [];
+    correctGuessesCount += 1;
+}
+
+function wrongGuess(){
+    matchCheckContainer[0].classList.toggle('open');
+    matchCheckContainer[0].classList.toggle('show')
+    matchCheckContainer[1].classList.toggle('open');
+    matchCheckContainer[1].classList.toggle('show');
+    matchCheckContainer = [];
 }
 
 deck.addEventListener('click', playMove);
