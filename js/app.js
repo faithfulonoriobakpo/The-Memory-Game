@@ -2,7 +2,6 @@ let movesCount = 0;
 let correctGuessesCount = 0;
 const movesDisplay = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
-const restartButton = document.querySelector('.restart');
 
 let matchCheckContainer = [];
 let correctGuesses = [];
@@ -25,7 +24,7 @@ function playMove(e){
                     correctGuess();
                     correctGuesses.push(guessClass);
                     if(correctGuessesCount == 8){
-                        gameWon();
+                        setTimeout(gameWon, 500);
                     }
                 }
                 else{
@@ -63,6 +62,5 @@ function gameOver(){
 }
 
 function playAgain(){
+    location.replace('index.html');
 }
-
-deck.addEventListener('click', playMove);
