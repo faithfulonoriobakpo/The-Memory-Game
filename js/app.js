@@ -2,6 +2,8 @@ let movesCount = 0;
 let correctGuessesCount = 0;
 const movesDisplay = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
+const playAgainButton = document.querySelector('#playAgainButton');
+const winLevel = document.querySelector('#winLevel');
 
 let matchCheckContainer = [];
 let correctGuesses = [];
@@ -28,7 +30,7 @@ function playMove(e){
                     }
                 }
                 else{
-                    setTimeout(wrongGuess, 700);
+                    setTimeout(wrongGuess, 400);
                 }
                 movesCount += 1;
                 movesDisplay.innerHTML = movesCount;
@@ -64,3 +66,5 @@ function gameOver(){
 function playAgain(){
     location.replace('index.html');
 }
+
+playAgainButton.addEventListener('click', playAgain);
