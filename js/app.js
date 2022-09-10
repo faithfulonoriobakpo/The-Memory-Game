@@ -24,6 +24,9 @@ function playMove(e){
                 if(matchCheckContainer[0].firstElementChild.className == matchCheckContainer[1].firstElementChild.className){
                     correctGuess();
                     correctGuesses.push(guessClass);
+                    if(correctGuessesCount == 8){
+                        gameWon();
+                    }
                 }
                 else{
                     setTimeout(wrongGuess, 700);
@@ -50,6 +53,16 @@ function wrongGuess(){
     matchCheckContainer[1].classList.toggle('open');
     matchCheckContainer[1].classList.toggle('show');
     matchCheckContainer = [];
+}
+
+function gameWon(){
+    location.replace('winscreen.html');
+}
+
+function gameOver(){
+}
+
+function playAgain(){
 }
 
 deck.addEventListener('click', playMove);
