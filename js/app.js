@@ -4,6 +4,7 @@ const movesDisplay = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
 const playAgainButton = document.querySelector('#playAgainButton');
 const winLevel = document.querySelector('#winLevel');
+const restartButton = document.querySelector('.restart');
 
 let matchCheckContainer = [];
 let correctGuesses = [];
@@ -57,7 +58,6 @@ function wrongGuess(){
 }
 
 function gameWon(){
-    location.replace('winscreen.html');
 }
 
 function gameOver(){
@@ -68,3 +68,5 @@ function playAgain(){
 }
 
 playAgainButton.addEventListener('click', playAgain);
+deck.addEventListener('click', playMove);
+restartButton.addEventListener('click', playAgain);
