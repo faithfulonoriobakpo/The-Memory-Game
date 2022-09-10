@@ -23,6 +23,7 @@ function playMove(e){
             if(matchCheckContainer.length == 2){
                 if(matchCheckContainer[0].firstElementChild.className == matchCheckContainer[1].firstElementChild.className){
                     correctGuess();
+                    correctGuesses.push(guessClass);
                 }
                 else{
                     setTimeout(wrongGuess, 700);
@@ -37,7 +38,6 @@ function playMove(e){
 }
 
 function correctGuess(){
-    correctGuesses.push(guessClass);
     matchCheckContainer[0].classList.add('match');
     matchCheckContainer[1].classList.add('match');
     matchCheckContainer = [];
