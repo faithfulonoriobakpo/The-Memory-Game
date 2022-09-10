@@ -50,10 +50,8 @@ function correctGuess(){
 }
 
 function wrongGuess(){
-    matchCheckContainer[0].classList.toggle('open');
-    matchCheckContainer[0].classList.toggle('show')
-    matchCheckContainer[1].classList.toggle('open');
-    matchCheckContainer[1].classList.toggle('show');
+    matchCheckContainer[0].classList.remove('open','show');
+    matchCheckContainer[1].classList.remove('open','show');
     matchCheckContainer = [];
 }
 
