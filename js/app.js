@@ -35,7 +35,6 @@ function playMove(e){
                 else{
                     setTimeout(wrongGuess, 400);
                 }
-                matchCheckContainer = [];
                 movesCount += 1;
                 movesDisplay.innerHTML = movesCount;
             }
@@ -48,12 +47,14 @@ function playMove(e){
 function correctGuess(){
     matchCheckContainer[0].classList.add('match');
     matchCheckContainer[1].classList.add('match');
+    matchCheckContainer = [];
     correctGuessesCount += 1;
 }
 
 function wrongGuess(){
     matchCheckContainer[0].classList.remove('open','show');
     matchCheckContainer[1].classList.remove('open','show');
+    matchCheckContainer = [];
 }
 
 function gameWon(){
