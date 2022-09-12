@@ -6,10 +6,23 @@ const playAgainButton = document.querySelector('#playAgainButton');
 const winLevel = document.querySelector('#winLevel');
 const restartButton = document.querySelector('.restart');
 const winScreen = document.querySelector('#winScreen');
-gameScreen = document.querySelector('.container');
+const gameScreen = document.querySelector('.container');
+let time = document.querySelector('#time');
+let count = 60;
 
 let matchCheckContainer = [];
 let correctGuesses = [];
+
+function countDown(){
+    count -= 1;
+    time.innerHTML = count;
+    if(count == 0){
+        clearInterval(clockTimer);
+        gameOver();
+    }
+}
+
+const clockTimer = setInterval(countDown, 1000);
 
 function playMove(e){
 
