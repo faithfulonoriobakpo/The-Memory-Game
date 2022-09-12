@@ -16,7 +16,7 @@
         </header>
 
         <section class="score-panel">
-            <span>⏰ <span id="time"></span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span>⏰<span id="time"></span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
         	<ul class="stars">
         		<li>⭐</li>
                 <li>⭐</li>
@@ -24,10 +24,10 @@
                 <li>⭐</li>
                 <li>⭐</li>
         	</ul>
-            &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;
         	<span class="moves">0</span> Moves
 
-            <div class="restart">
+            <div class="playAgainButton">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
@@ -86,10 +86,17 @@
     </div>
 
     <div id="winScreen" class="hide">
-        <h2>Congratulations! You won!</h2> <br>
-        <p id="winLevel"></p>
+        <h2>Congratulations! You won!</h2>
+        <p id="winSummary"></p>
         <p>Wooo!</p>
-        <button id="playAgainButton">Play Again!</button>
+        <button class="playAgainButton">Play Again!</button>
+    </div>
+
+    <div id="loseScreen" class="hide">
+        <h2>Oops! You couldn't make all matches this time.</h2><br>
+        <p id="loseSummary"></p>
+        <p>Want to try again?</p>
+        <button class="playAgainButton">Play Again!</button>
     </div>
 
     <script src="js/app.js"></script>

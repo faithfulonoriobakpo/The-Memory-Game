@@ -2,16 +2,18 @@ let movesCount = 0;
 let correctGuessesCount = 0;
 const movesDisplay = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
-const playAgainButton = document.querySelector('#playAgainButton');
-const winLevel = document.querySelector('#winLevel');
-const restartButton = document.querySelector('.restart');
-const winScreen = document.querySelector('#winScreen');
+const playAgainButtons = document.querySelectorAll('.playAgainButton');
 const gameScreen = document.querySelector('.container');
 let time = document.querySelector('#time');
-let count = 60;
+let count = 120;
+let starCount = 5;
 
 let matchCheckContainer = [];
 let correctGuesses = [];
+
+playAgainButtons.forEach(button => {
+    button.addEventListener('click', playAgain);
+});
 
 function countDown(){
     count -= 1;
@@ -72,17 +74,25 @@ function wrongGuess(){
 }
 
 function gameWon(){
+    clearInterval(clockTimer);
+    const star = "⭐";
+    const winSummary = document.querySelector('#winSummary');
+    winSummary.innerHTML = `${starCount} ${star.repeat(starCount)} General! 
+                                <br><br> You did won with ${movesCount} moves!`;
     gameScreen.classList.add('hide');
     winScreen.classList.remove('hide');
 }
 
 function gameOver(){
+    const loseSummary = document.querySelector('#loseSummary');
+    loseSummary.innerHTML = `You could only make ${correctGuesses.length} matches with ${movesCount} moves!`;
+    gameScreen.classList.add('hide');
+    loseScreen.classList.remove('hide');
+    document.body.style.background = "black";
 }
 
 function playAgain(){
     location.replace('index.html');
 }
 
-playAgainButton.addEventListener('click', playAgain);
 deck.addEventListener('click', playMove);
-restartButton.addEventListener('click', playAgain);
