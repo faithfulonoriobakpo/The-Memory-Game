@@ -24,7 +24,7 @@ function playMove(e){
 
             selectedTile.classList.add('open', 'show');
 
-            if(matchCheckContainer.length == 2){
+            if(matchCheckContainer.length >= 2){
                 if(matchCheckContainer[0].firstElementChild.className == matchCheckContainer[1].firstElementChild.className){
                     correctGuess();
                     correctGuesses.push(guessClass);
@@ -52,8 +52,9 @@ function correctGuess(){
 }
 
 function wrongGuess(){
-    matchCheckContainer[0].classList.remove('open','show');
-    matchCheckContainer[1].classList.remove('open','show');
+    matchCheckContainer.forEach(card => {
+        card.classList.remove('open','show'); 
+    });
     matchCheckContainer = [];
 }
 
