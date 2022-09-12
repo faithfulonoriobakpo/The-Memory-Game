@@ -5,7 +5,7 @@ const deck = document.querySelector('.deck');
 const playAgainButtons = document.querySelectorAll('.playAgainButton');
 const gameScreen = document.querySelector('.container');
 let time = document.querySelector('#time');
-let count = 120;
+let count = timeSpent = 120;
 let starCount = 5;
 
 let matchCheckContainer = [];
@@ -78,7 +78,7 @@ function gameWon(){
     const star = "⭐";
     const winSummary = document.querySelector('#winSummary');
     winSummary.innerHTML = `${starCount} ${star.repeat(starCount)} General! 
-                                <br><br> You did won with ${movesCount} moves!`;
+                                <br><br> You did it in ${timeSpent - count} seconds with ${movesCount} moves!`;
     gameScreen.classList.add('hide');
     winScreen.classList.remove('hide');
 }
