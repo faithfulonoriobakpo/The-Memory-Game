@@ -6,7 +6,10 @@ const playAgainButtons = document.querySelectorAll('.playAgainButton');
 const gameScreen = document.querySelector('.container');
 let time = document.querySelector('#time');
 let count = timeSpent = 120;
+const stars = document.querySelector('#stars');
 let starCount = 5;
+const star = "⭐";
+let starMeasure = 14;
 
 let matchCheckContainer = [];
 let correctGuesses = [];
@@ -53,6 +56,11 @@ function playMove(e){
                 movesCount += 1;
                 movesDisplay.innerHTML = movesCount;
             }
+            if(movesCount = starMeasure){
+                starCount -= 1;
+                stars.innerHTML = star.repeat(starCount);
+                starMeasure += 5;
+            }
         }
     }
         
@@ -75,7 +83,6 @@ function wrongGuess(){
 
 function gameWon(){
     clearInterval(clockTimer);
-    const star = "⭐";
     const winSummary = document.querySelector('#winSummary');
     winSummary.innerHTML = `${starCount} ${star.repeat(starCount)} General! 
                                 <br><br> You did it in ${timeSpent - count} seconds with ${movesCount} moves!`;
