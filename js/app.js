@@ -51,6 +51,9 @@ function playMove(e){
                     }
                 }
                 else{
+                    matchCheckContainer.forEach(card => {
+                        card.classList.add('mismatch'); 
+                    })
                     wrongGuess();
                 }
                 movesCount += 1;
@@ -76,9 +79,9 @@ function correctGuess(){
 
 function wrongGuess(){
      setTimeout(() => {matchCheckContainer.forEach(card => {
-        card.classList.remove('open','show'); 
+        card.classList.remove('open','show', 'mismatch'); 
     });
-    matchCheckContainer = [];}, 500);
+    matchCheckContainer = [];}, 400);
 }
 
 function gameWon(){
