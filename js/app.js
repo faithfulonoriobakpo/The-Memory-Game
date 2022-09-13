@@ -51,7 +51,7 @@ function playMove(e){
                     }
                 }
                 else{
-                    setTimeout(wrongGuess, 400);
+                    wrongGuess();
                 }
                 movesCount += 1;
                 movesDisplay.innerHTML = movesCount;
@@ -75,10 +75,10 @@ function correctGuess(){
 }
 
 function wrongGuess(){
-    matchCheckContainer.forEach(card => {
+     setTimeout(() => {matchCheckContainer.forEach(card => {
         card.classList.remove('open','show'); 
     });
-    matchCheckContainer = [];
+    matchCheckContainer = [];}, 500);
 }
 
 function gameWon(){
