@@ -29,6 +29,20 @@ function countDown(){
 
 const clockTimer = setInterval(countDown, 1000);
 
+function shuffleCards(){
+    let cardContainers = document.querySelectorAll('.card');
+    let cards =  document.querySelectorAll('.fa');
+
+    let initIndex = cardContainers.length;
+
+    cardContainers.forEach(cardContainer => {
+        let randomIndex = Math.floor(Math.random() * initIndex);
+        cardContainer.replaceChild(cards[randomIndex], cardContainer.firstElementChild);
+        cards = cards.filter(element => element !== cards[randomIndex]);
+        initIndex -= 1;
+    });
+}
+
 function playMove(e){
 
     let selectedTile = e.target;
@@ -47,7 +61,7 @@ function playMove(e){
                     correctGuess();
                     correctGuesses.push(guessClass);
                     if(correctGuessesCount == 8){
-                        setTimeout(gameWon, 500);
+                        setTimeout(gameWon, 1000);
                     }
                 }
                 else{
@@ -62,7 +76,7 @@ function playMove(e){
             if(movesCount == starMeasure){
                 starCount -= 1;
                 stars.innerHTML = star.repeat(starCount);
-                starMeasure += 3;
+                starMeasure += 4;
             }
         }
     }
@@ -111,3 +125,4 @@ function playAgain(){
 }
 
 deck.addEventListener('click', playMove);
+shuffleCards();
