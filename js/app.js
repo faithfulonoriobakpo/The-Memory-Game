@@ -9,7 +9,7 @@ let count = timeSpent = 120;
 const stars = document.querySelector('#stars');
 let starCount = 5;
 const star = "⭐";
-let starMeasure = 14;
+let starMeasure = 12;
 
 let matchCheckContainer = [];
 let correctGuesses = [];
@@ -59,7 +59,7 @@ function playMove(e){
             if(movesCount == starMeasure){
                 starCount -= 1;
                 stars.innerHTML = star.repeat(starCount);
-                starMeasure += 5;
+                starMeasure += 3;
             }
         }
     }
