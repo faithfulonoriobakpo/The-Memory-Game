@@ -87,7 +87,7 @@ h1 {
     cursor: default;
     background: red;
     font-size: 33px;
-    animation: shake 0.4s;
+    animation: shake 0.5s;
 }
 /*
  * Styles for the Score Panel

@@ -40,7 +40,7 @@ function playMove(e){
 
             matchCheckContainer.push(selectedTile);
 
-            selectedTile.classList.add('open', 'show');
+            selectedTile.classList.add('open', 'show', 'animate__flipInY');
 
             if(matchCheckContainer.length >= 2){
                 if(matchCheckContainer[0].firstElementChild.className == matchCheckContainer[1].firstElementChild.className){
@@ -71,8 +71,13 @@ function playMove(e){
 }
 
 function correctGuess(){
-    matchCheckContainer[0].classList.add('match');
-    matchCheckContainer[1].classList.add('match');
+    matchCheckContainer.forEach(card => {
+        if(card.classList.contains('animate__flipInY')){
+            card.classList.remove('animate__flipInY');
+        }
+    });
+    matchCheckContainer[0].classList.add('match', 'animate__bounce');
+    matchCheckContainer[1].classList.add('match', 'animate__bounce');
     matchCheckContainer = [];
     correctGuessesCount += 1;
 }
@@ -81,7 +86,7 @@ function wrongGuess(){
      setTimeout(() => {matchCheckContainer.forEach(card => {
         card.classList.remove('open','show', 'mismatch'); 
     });
-    matchCheckContainer = [];}, 400);
+    matchCheckContainer = [];}, 500);
 }
 
 function gameWon(){
