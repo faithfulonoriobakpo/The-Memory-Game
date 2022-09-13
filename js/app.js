@@ -56,7 +56,7 @@ function playMove(e){
                 movesCount += 1;
                 movesDisplay.innerHTML = movesCount;
             }
-            if(movesCount = starMeasure){
+            if(movesCount == starMeasure){
                 starCount -= 1;
                 stars.innerHTML = star.repeat(starCount);
                 starMeasure += 5;
